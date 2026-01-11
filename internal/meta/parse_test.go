@@ -8,7 +8,7 @@ import (
 // TestParseBasicStruct tests parsing a basic struct.
 func TestParseBasicStruct(t *testing.T) {
 	type Product struct {
-		ID    uint   `gorm:"primaryKey" go-blar:"pk"`
+		ID    uint `gorm:"primaryKey" go-blar:"pk"`
 		Name  string
 		Price float64
 	}
@@ -39,7 +39,7 @@ func TestParseBasicStruct(t *testing.T) {
 
 func TestParseWithPrimaryKey(t *testing.T) {
 	type Entity struct {
-		ID   uint   `gorm:"primaryKey" go-blar:"pk"`
+		ID   uint `gorm:"primaryKey" go-blar:"pk"`
 		Name string
 	}
 
@@ -142,11 +142,11 @@ func TestToSnakeCase(t *testing.T) {
 
 func TestParseFieldTags(t *testing.T) {
 	type Product struct {
-		ID       uint      `go-blar:"pk"`
+		ID       uint `go-blar:"pk"`
 		Name     string
-		Secret   string    `go-blar:"hidden"`
-		ReadOnly string    `go-blar:"readonly"`
-		Items    []string  `go-blar:"list"`
+		Secret   string   `go-blar:"hidden"`
+		ReadOnly string   `go-blar:"readonly"`
+		Items    []string `go-blar:"list"`
 	}
 
 	ClearRegistry()

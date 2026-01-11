@@ -11,7 +11,7 @@ import (
 
 // Product is a sample entity.
 type Product struct {
-	ID       uint   `gorm:"primaryKey" go-blar:"pk"`
+	ID       uint `gorm:"primaryKey" go-blar:"pk"`
 	Name     string
 	Price    float64
 	Quantity int    `go-blar:"readonly"`
@@ -34,7 +34,7 @@ func (p *Product) AfterCreate(ctx context.Context, tx *gorm.DB) error {
 
 // User is another sample entity.
 type User struct {
-	ID    uint   `gorm:"primaryKey" go-blar:"pk"`
+	ID    uint `gorm:"primaryKey" go-blar:"pk"`
 	Name  string
 	Email string
 }
