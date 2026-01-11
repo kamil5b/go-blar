@@ -161,15 +161,16 @@ func toSnakeCase(s string) string {
 			continue
 		}
 
-		// Add underscore before uppercase letters, unless the previous char was also uppercase
-		// (to handle acronyms like "HTTPServer" -> "http_server")
+		// Avoid adding extra underscores if current or previous char is '_'
+		if r == '_' {
+			result.WriteRune(r)
+			continue
+		}
+
 		if r >= 'A' && r <= 'Z' {
-			// Check if previous char is lowercase or if next char is lowercase
-			// to determine if this is the start of a new word
-			if runes[i-1] >= 'a' && runes[i-1] <= 'z' {
+			if runes[i-1] != '_' && runes[i-1] >= 'a' && runes[i-1] <= 'z' {
 				result.WriteRune('_')
-			} else if i+1 < len(runes) && runes[i+1] >= 'a' && runes[i+1] <= 'z' {
-				// This is an uppercase followed by lowercase (e.g., "HTTPServer" -> insert _ before S)
+			} else if runes[i-1] != '_' && i+1 < len(runes) && runes[i+1] >= 'a' && runes[i+1] <= 'z' {
 				result.WriteRune('_')
 			}
 		}

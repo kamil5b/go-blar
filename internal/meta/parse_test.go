@@ -130,6 +130,9 @@ func TestToSnakeCase(t *testing.T) {
 		{"ID", "id"},
 		{"Product", "product"},
 		{"HTTPServer", "http_server"},
+		{"ProductID", "product_id"},
+		{"SimpleTestCase", "simple_test_case"},
+		{"Already_Snake_Case", "already_snake_case"},
 	}
 
 	for _, tt := range tests {
